@@ -35,7 +35,7 @@ func main() {
 
 	flag.StringVar(&cfg.db.dsn, "mongo_uri", os.Getenv("MONGO_DB_DSN"), "db connection string")
 	flag.Uint64Var(&cfg.db.maxOpenConn, "maxOpenConn", uint64(100), "maximum number of open connections")
-	flag.DurationVar(&cfg.db.maxIdleTime, "maxIdleTime", time.Duration(10), "maximum iddle time of one connection")
+	flag.DurationVar(&cfg.db.maxIdleTime, "maxIdleTime", time.Duration(10), "maximum idle time of one connection")
 	flag.Parse()
 
 	infoLog := log.New(os.Stdout, "info\t", log.LstdFlags)
