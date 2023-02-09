@@ -9,6 +9,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"s_renovation.net/internal/data"
 	"time"
 )
 
@@ -16,6 +17,7 @@ type application struct {
 	config   config
 	infoLog  *log.Logger
 	errorLog *log.Logger
+	models   data.Models
 }
 
 type config struct {
@@ -55,6 +57,7 @@ func main() {
 		config:   cfg,
 		infoLog:  infoLog,
 		errorLog: errorLog,
+		models:   data.NewModels(client),
 	}
 	srv := http.Server{
 		Addr:     fmt.Sprintf("localhost:%v", cfg.port),
@@ -85,3 +88,6 @@ func openDB(cfg config) (*mongo.Client, error) {
 	}
 	return client, nil
 }
+
+///написать валидатор бизнес логики
+//написать парсинг темплейтов
