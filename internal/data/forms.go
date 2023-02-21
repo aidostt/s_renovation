@@ -32,6 +32,8 @@ func (m FormModel) Insert(form *Form) error {
 	defer cancel()
 	_, err := collection.InsertOne(ctx, form)
 	if err != nil {
+		//server error response
+		//db insert failed
 		return err
 	}
 	return nil

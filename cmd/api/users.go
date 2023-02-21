@@ -6,28 +6,30 @@ import (
 	"net/http"
 	"s_renovation.net/internal/data"
 	"s_renovation.net/validator"
+	"time"
 )
 
 func (app *application) registerUserHandler(w http.ResponseWriter, r *http.Request) {
 	var input struct {
-		Name     string `bson:"name"`
-		Surname  string `bson:"surname"`
-		Password string `bson:"password"`
+		Name     string `form:"name"`
+		Surname  string `form:"surname"`
+		Email    string `form:"email"`
+		Password string `form:"password"`
 	}
-	err := json.NewDecoder(r.Body).Decode(&input)
+	err := app.decodePostForm(r, &input)
+	//err := json.NewDecoder(r.Body).Decode(&input)
 	if err != nil {
-		app.errorLog.Print("server error response")
-		app.errorLog.Println(err)
+		app.serverErrorResponse(w, r, err)
 	}
-
 	user := &data.User{
-		Name:    input.Name,
-		Surname: input.Surname,
+		Name:      input.Name,
+		CreatedAt: time.Now(),
+		Surname:   input.Surname,
+		Email:     input.Email,
 	}
 	err = user.Password.Set(input.Password, 12)
 	if err != nil {
-		app.errorLog.Print("server error response")
-		app.errorLog.Print(err)
+		app.serverErrorResponse(w, r, err)
 	}
 
 	v := validator.New()
@@ -37,13 +39,18 @@ func (app *application) registerUserHandler(w http.ResponseWriter, r *http.Reque
 	}
 	err = app.models.User.Insert(user)
 	if err != nil {
-		app.errorLog.Print("server error response")
-		app.errorLog.Print(err)
+		switch {
+		case errors.Is(err, data.ErrDuplicateEmail):
+			v.AddError("email", "a user with this email address already exists")
+			app.failedValidationResponse(w, r, v.Errors)
+		default:
+			app.serverErrorResponse(w, r, err)
+		}
+		return
 	}
-
 }
 
-func (app *application) ShowUserHandler(w http.ResponseWriter, r *http.Request) {
+func (app *application) showUserHandler(w http.ResponseWriter, r *http.Request) {
 	var email string
 	err := json.NewDecoder(r.Body).Decode(&email)
 	if err != nil {
@@ -57,12 +64,10 @@ func (app *application) ShowUserHandler(w http.ResponseWriter, r *http.Request) 
 	user, err := app.models.User.GetByEmail(email)
 	if err != nil {
 		switch {
-		case errors.Is(err, data.ErrRecordNotFound):
-			app.infoLog.Print("user not found")
-
+		case errors.Is(err, ErrRecordNotFound):
+			app.notFoundResponse(w, r)
 		default:
-			app.errorLog.Print("server error response")
-			app.errorLog.Print(err)
+			app.serverErrorResponse(w, r, err)
 		}
 	}
 	w.Write([]byte(user.Name))

@@ -32,6 +32,6 @@ func (app *application) createFormHandler(w http.ResponseWriter, r *http.Request
 	err = app.models.Form.Insert(form)
 
 	if err != nil {
-		app.errorLog.Print(err)
+		app.serverErrorResponse(w, r, err)
 	}
 }

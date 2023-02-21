@@ -3,6 +3,7 @@ package data
 import (
 	"context"
 	"errors"
+	"fmt"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 	"golang.org/x/crypto/bcrypt"
@@ -10,13 +11,17 @@ import (
 	"time"
 )
 
+var (
+	ErrDuplicateEmail = errors.New("duplicate email")
+)
+
 type User struct {
 	_Id       primitive.ObjectID `bson:"_id"`
-	CreatedAt time.Time          `bson:"created_at"`
-	Name      string             `bson:"name"`
-	Surname   string             `bson:"surname"`
-	Email     string             `bson:"email"`
-	Password  password           `bson:"-"`
+	CreatedAt time.Time          `json:"created_at"`
+	Name      string             `json:"name"`
+	Surname   string             `json:"surname"`
+	Email     string             `json:"email"`
+	Password  password           `json:"password"`
 	//role
 }
 
@@ -58,6 +63,7 @@ func (p *password) Set(plaintextPassword string, cost int) error {
 	}
 	p.plaintext = &plaintextPassword
 	p.hash = hash
+	fmt.Println(hash)
 	return nil
 }
 
@@ -80,8 +86,11 @@ func (m UserModel) Insert(user *User) error {
 	collection := m.DB.Database("renovation").Collection("users")
 	_, err := collection.InsertOne(ctx, user)
 	if err != nil {
+		//add unique constraint on email
+		if mongo.IsDuplicateKeyError(err) {
+			return ErrDuplicateEmail
+		}
 		return err
-		//add more advanced error handling
 	}
 
 	return nil

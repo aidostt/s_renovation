@@ -1,0 +1,111 @@
+.btn {
+    border-radius: 0;
+    transition: 0.4s ease-out;
+
+    &:active {
+        border: 1px solid #335686;
+        background-color: #335686;
+    }
+
+    &:focus-visible {
+        color: #fff;
+        background-color: #335686;
+        border-color: #335686;
+        outline: 0;
+        box-shadow: none;
+    }
+}
+
+.accordion-button {
+    &:focus {
+        z-index: 3;
+        border-color: none !important;
+        outline: 0;
+        box-shadow: none !important;
+    }
+
+    &:not(.collapsed) {
+        color: #000 !important;
+        background-color: #fff;
+        box-shadow: none !important;
+
+        &::after {
+            background-image: var(--bs-accordion-btn-icon);
+            transform: var(--bs-accordion-btn-icon-transform);
+        }
+    }
+}
+
+.btn-check:checked + .btn,
+.btn.active,
+.btn.show,
+.btn:first-child:active,
+:not(.btn-check) + .btn:active {
+    border: 1px solid #335686;
+    background-color: transparent;
+}
+
+.btn-primary {
+    border: 1px solid #2b4972;
+    background-color: #2b4972;
+}
+
+.btn-primary:hover {
+    border: 1px solid #4b76b0;
+    background-color: #4b76b0;
+}
+
+.btn-close:focus {
+    outline: 0;
+    box-shadow: none;
+    opacity: var(--bs-btn-close-focus-opacity);
+}
+
+.btn-close:hover {
+    opacity: 1 !important;
+}
+
+.collapsing {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    transition: 0.35s ease;
+}
+
+.dropdown-item {
+    &:focus, &:hover {
+        color: #fff;
+        background-color: #335686;
+    }
+}
+
+.form-control:focus {
+    color: var(--bs-body-color);
+    background-color: none;
+    border-color: #2b4972 !important;
+    outline: 0;
+    box-shadow: none !important;
+}
+
+.form-select:focus {
+    border-color: #2b4972 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+}
+
+.form-check {
+    display: flex !important;
+    align-items: center !important;
+}
+
+.form-check-input:checked {
+    background-color: #335686 !important;
+    border-color: #335686 !important;
+}
+
+.form-check-input:focus {
+    border-color: #2b4972;
+    outline: 0;
+    box-shadow: none;
+}
+

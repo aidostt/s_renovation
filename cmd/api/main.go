@@ -4,6 +4,7 @@ import (
 	"context"
 	"flag"
 	"fmt"
+	"github.com/go-playground/form"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"log"
@@ -14,10 +15,11 @@ import (
 )
 
 type application struct {
-	config   config
-	infoLog  *log.Logger
-	errorLog *log.Logger
-	models   data.Models
+	config      config
+	infoLog     *log.Logger
+	errorLog    *log.Logger
+	models      data.Models
+	formDecoder *form.Decoder
 }
 
 type config struct {
@@ -45,26 +47,27 @@ func main() {
 
 	client, err := openDB(cfg)
 	if err != nil {
-		errorLog.Println("Could not connect to MongoDB Atlas:", err)
+		errorLog.Fatalf("Could not connect to MongoDB Atlas: %v", err)
 	}
 	infoLog.Println("Connected to Mongo Atlas!")
 	defer func() {
 		if err := client.Disconnect(context.TODO()); err != nil {
+			errorLog.Fatalf("Couldn't close the database connection, due to: %v", err)
 		}
 	}()
-
+	formDecoder := form.NewDecoder()
 	app := application{
-		config:   cfg,
-		infoLog:  infoLog,
-		errorLog: errorLog,
-		models:   data.NewModels(client),
+		config:      cfg,
+		infoLog:     infoLog,
+		errorLog:    errorLog,
+		models:      data.NewModels(client),
+		formDecoder: formDecoder,
 	}
 	srv := http.Server{
 		Addr:     fmt.Sprintf("localhost:%v", cfg.port),
 		Handler:  app.Router(),
 		ErrorLog: errorLog,
 	}
-
 	infoLog.Printf("staring %v server on %v", cfg.env, srv.Addr)
 	err = srv.ListenAndServe()
 	errorLog.Fatalln(err)

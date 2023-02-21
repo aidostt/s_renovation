@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&family=Nunito+Sans:wght@200;300;400;600;800&display=swap"
+        rel="stylesheet">
+    <link rel="shortcut icon" href="static/images/shortcut_icon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <script defer src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script defer src="https://kit.fontawesome.com/38606480b3.js" crossorigin="anonymous"></script>
+    <script defer src="static/js/script.js"></script>
+    <script defer src="static/js/galleryModal.js"></script>
+    <link rel="stylesheet" href="static/css/style.css">
+    <title>Чистовая отделка от Sensata Group</title>
+</head>
+
+<body>
+    <div id="preloader" class="d-flex content-center align-center">
+        <div class="spinner-grow text-color-blue" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+    <div class="container-fluid navigation fixed-top bg-blue">
+        <div class="container">
+            <header id="header"
+                class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between padding-y-1">
+                <a class="text-light ig-logo" href="https://www.instagram.com/s.renovation_/" target="_blank">
+                    <i class="fa-brands fa-instagram fa-xl"></i>
+                </a>
+                <div class="brand">
+                    <a href="index.htm"
+                        class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+                        <img class="brand-img" src="static/images/brand_logo/brand-3.png" alt="s-renovation">
+                    </a>
+                </div>
+                <ul id="navbar-lists" class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="index.htm#services" class="i-nav-link nav-link px-4 link-light">Услуги</a></li>
+                    <li><a href="index.htm#gallery" class="i-nav-link nav-link px-4 link-light">Работы</a></li>
+                    <li><a href="index.htm#prices" class="i-nav-link nav-link px-4 link-light">Цены</a></li>
+                    <li><a href="index.htm#contact" class="i-nav-link nav-link px-4 link-light">Контакты</a></li>
+                    <li><a href="index.htm#advantages" class="i-nav-link nav-link px-4 link-light">Преимущества</a>
+                    </li>
+                </ul>
+                <div id="navbar-btn" class="text-end">
+                    <a href="signin.htm" class="btn btn-outline-primary me-2 signin main-border-radius">Войти</a>
+                    <a href="signup.htm" class="btn btn-primary signup main-border-radius">Зарегистрироваться</a>
+                </div>
+                <a href="#" class="d-flex align-items-center justify-content-center link-dark text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="static/images/client-1.jpg" alt="mdo" width="40" height="40" class="rounded-circle">
+                </a>
+                <ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3 no-border" aria-labelledby="profileDropdown">
+                    <!-- Profile info -->
+                    <li class="px-3 mb-3">
+                        <div class="d-flex align-items-center">
+                            <!-- Avatar -->
+                            <div class="avatar me-3">
+                                <img class="avatar-img rounded-circle" src="static/images/client-1.jpg" alt="avatar" style="width:inherit;">
+                            </div>
+                            <div>
+                                <a class="h6 mt-2 mt-sm-0" href="#">Жарас</a>
+                                <p class="small m-0">example@gmail.com</p>
+                            </div>
+                        </div>
+                    </li>
+                        <hr class="dropdown-divider">
+                    <!-- Links -->
+                    <li><a class="dropdown-item" href="userProfile.htm">Профиль</a></li>
+                    <li><a class="dropdown-item" href="#">Настройки</a></li>
+                    <li><a class="dropdown-item" href="#">Заявки</a></li>
+                    <li><a class="dropdown-item bg-danger-soft-hover" href="#">Выйти</a></li>
+                </ul>
+                <a href="#" class="d-flex align-items-center justify-content-center link-dark text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="static/images/client-3.jpg" alt="mdo" width="40" height="40" class="rounded-circle">
+                </a>
+                <ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3 no-border" aria-labelledby="profileDropdown">
+                    <!-- Profile info -->
+                    <li class="px-3 mb-3">
+                        <div class="d-flex align-items-center">
+                            <!-- Avatar -->
+                            <div class="avatar me-3">
+                                <img class="avatar-img rounded-circle" src="static/images/client-3.jpg" alt="avatar" style="width:inherit;">
+                            </div>
+                            <div>
+                                <a class="h6 mt-2 mt-sm-0" href="#">Алия</a>
+                                <p class="small m-0">example@gmail.com</p>
+                            </div>
+                        </div>
+                    </li>
+                        <hr class="dropdown-divider">
+                    <!-- Links -->
+                    <li><a class="dropdown-item" href="userProfile.htm">Админ панель</a></li>
+                    <li><a class="dropdown-item" href="admin/customers.htm">Клиенты</a></li>
+                    <li><a class="dropdown-item" href="#">Заявки</a></li>
+                    <li><a class="dropdown-item bg-danger-soft-hover" href="#">Выйти</a></li>
+                </ul>
+                <a id="offcanvas-btn" class="btn" data-bs-toggle="offcanvas" href="#offcanvas" role="button"
+                    aria-controls="offcanvasExample" style="width:50px; padding-right: 0;">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 643.91" style="max-width: 25px;">
+                        <defs>
+                            <style>
+                                .cls-1 {
+                                    fill: #fff;
+                                }
+                            </style>
+                        </defs>
+                        <g id="Слой_2" data-name="Слой 2">
+                            <g id="Слой_1-2" data-name="Слой 1">
+                                <path class="cls-1" d="M50,99.5a49.5,49.5,0,0,1,0-99H800a49.5,49.5,0,0,1,0,99Z" />
+                                <path class="cls-1"
+                                    d="M800,1a49,49,0,0,1,0,98H50A49,49,0,0,1,50,1H800m0-1H50A50,50,0,0,0,0,50H0a50,50,0,0,0,50,50H800a50,50,0,0,0,50-50h0A50,50,0,0,0,800,0Z" />
+                                <path class="cls-1" d="M50,643.41a49.5,49.5,0,0,1,0-99H800a49.5,49.5,0,0,1,0,99Z" />
+                                <path class="cls-1"
+                                    d="M800,544.91a49,49,0,0,1,0,98H50a49,49,0,0,1,0-98H800m0-1H50a50,50,0,0,0-50,50H0a50,50,0,0,0,50,50H800a50,50,0,0,0,50-50h0a50,50,0,0,0-50-50Z" />
+                                <path class="cls-1" d="M50,371.46a49.5,49.5,0,0,1,0-99H800a49.5,49.5,0,0,1,0,99Z" />
+                                <path class="cls-1"
+                                    d="M800,273a49,49,0,0,1,0,98H50a49,49,0,0,1,0-98H800m0-1H50A50,50,0,0,0,0,322H0a50,50,0,0,0,50,50H800a50,50,0,0,0,50-50h0a50,50,0,0,0-50-50Z" />
+                            </g>
+                        </g>
+                    </svg>
+                </a>
+                <div class="offcanvas offcanvas-start py-0 px-3" tabindex="-1" id="offcanvas"
+                    aria-labelledby="offcanvasLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasLabel">
+                            <div class="brand">
+                                <a href="index.htm"
+                                    class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+                                    <img class="brand-img" src="static/images/brand_logo/brand-2.png"
+                                        alt="s-renovation">
+                                </a>
+                            </div>
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <hr>
+                    <ul class="nav nav-pills flex-column mb-auto">
+                        <li class="nav-item">
+                            <a href="index.htm" class="nav-link active bg-blue main-border-radius" aria-current="page">Главная</a>
+                        </li>
+                        <li>
+                            <a href="index.htm#gallery" class="nav-link link-dark main-border-radius">Работы</a>
+                        </li>
+                        <li>
+                            <a href="index.htm#prices" class="nav-link link-dark main-border-radius">Цены</a>
+                        </li>
+                        <li>
+                            <a href="index.htm#contact" class="nav-link link-dark main-border-radius">Контакты</a>
+                        </li>
+                        <li>
+                            <a href="index.htm#advantages" class="nav-link link-dark main-border-radius">Преимущества</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex text-end mb-3 justify-content-between">
+                        <a href="signin.htm" class="btn btn-primary main-border-radius" style="flex: 1 0 0; margin-right: 15px;">Войти</a>
+                        <a href="signup.htm" class="btn btn-primary main-border-radius" style="flex: 1 0 0;">Зарегистрироваться</a>
+                    </div>
+                </div>
+            </header>
+        </div>
+    </div>
+    <div class="container pos-relative m-top col-xxl-8 px-4 py-5">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+            <div id="hero-image" class="col-10 col-sm-8 col-lg-7" width="700" height="500">
+                <img src="static/images/bg_header_4.jpg" class="hero-img d-block mx-lg-auto img-fluid" alt="Decoration"
+                     loading="lazy">
+            </div>
+            <div class="hero-section shadow-lg col-lg-7">
+                <h1 class="hero-title fnt-fam-montserrat display-5 fw-bold lh-1 mb-3">Ремонт квартир с гарантией - 1 год
+                </h1>
+                <p class="tagline lead">Чистовая отделка от SENSATA GROUP</p>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                    <a href="index.htm#contact"
+                        class="btn btn-primary btn-lg px-4 me-md-2 i-btn mt-4 mb-4 main-border-radius">Рассчитать
+                        стоимость</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="services" class="container-fluid bg-a-blue">
+        <div class="container">
+            <div class="section">
+                <div class="section-title-container">
+                    <h1 class="section-title">Что включено в чистовую отделку?</h1>
+                </div>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-5  d-flex content-center">
+                    <div class="col">
+                        <div class="i-card shadow-sm">
+                            <img class="card-img" src="static/images/icons/Painting_works.svg" alt="Стены и пол">
+                            <div class="card-body">
+                                <p class="card-title">Стены и пол</p>
+                                <p class="card-text fnt-fam-nunito">Выравнивание стен и стяжка пола. Финишное покрытие
+                                    стен, подготовка под покраску</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="i-card shadow-sm">
+                            <img class="card-img" src="static/images/icons/communication.svg" alt="Коммуникации">
+                            <div class="card-body">
+                                <p class="card-title">Коммуникации</p>
+                                <p class="card-text fnt-fam-nunito">Подводка сетей электричества, канализации и
+                                    водоснабжения</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="i-card shadow-sm">
+                            <img class="card-img" src="static/images/icons/flooring.svg" alt="Напольное покрытие">
+                            <div class="card-body">
+                                <p class="card-title">Напольное покрытие</p>
+                                <p class="card-text fnt-fam-nunito">Ламинат, керамогранит на входной зоне, теплые полы в
+                                    санузлах (опционально)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="i-card shadow-sm">
+                            <img class="card-img" src="static/images/icons/dismantling.svg" alt="Отделка санузлов">
+                            <div class="card-body">
+                                <p class="card-title">Отделка санузлов</p>
+                                <p class="card-text fnt-fam-nunito">Ламинат, керамогранит на входной зоне, теплые полы в
+                                    санузлах (опционально)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="i-card shadow-sm">
+                            <img class="card-img" src="static/images/icons/icons8--100.png" alt="Двери">
+                            <div class="card-body">
+                                <p class="card-title">Двери</p>
+                                <p class="card-text fnt-fam-nunito">Установка межкомнатных дверей и молдингов</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="i-card shadow-sm">
+                            <img class="card-img" src="static/images/icons/icons8-philips-hue-g.png" alt="Потолки">
+                            <div class="card-body">
+                                <p class="card-title">Потолки</p>
+                                <p class="card-text fnt-fam-nunito">Потолки ГКЛ со встроенными светильниками</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="i-card shadow-sm">
+                            <img class="card-img" src="static/images/icons/icons8--100%20(1).png"
+                                alt="Розетки и выключатели">
+                            <div class="card-body">
+                                <p class="card-title">Розетки и выключатели</p>
+                                <p class="card-text fnt-fam-nunito">Установка розеток и выключателей</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="i-card shadow-sm">
+                            <img class="card-img" src="static/images/icons/14ht_bath.svg" alt="Ванные комнаты">
+                            <div class="card-body">
+                                <p class="card-title">Ванные комнаты</p>
+                                <p class="card-text fnt-fam-nunito">Ванные комнаты с сантехникой, ванной или душевой</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="prices" class="container">
+        <div class="section">
+            <div class="section-title-container">
+                <h1 class="section-title">Пакеты</h1>
+                <p class="section-text fs-5 text-muted fnt">Мы выполняем 2 основных типа ремонтных работ. Все материалы,
+                    строительство и уборка входят в стоимость. Выберите подходящий.</p>
+            </div>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 mb-3 text-center content-center">
+                <div class="pricing-card">
+                    <div class="inner-pricing-card height-100 pb-5">
+                        <div class="p-card-header">
+                            <h2 class="fnt-fam-montserrat m-0"><b>Standart</b></h2>
+                            <p class="fnt-fam-montserrat">Стоимость указана за кв. метр</p>
+                        </div>
+                        <div class="p-card-body px-5">
+                            <h1 class="fnt-fam-nunito my-5">90 000 тг<small class="text-muted fw-light">/м²</small></h1>
+                            <ul class="p-card-body-list fnt-fam-montserrat">
+                                <li>Ламинат 32 класс</li>
+                                <li>Двери с ПВХ пленкой</li>
+                                <li>Типовой потолок</li>
+                                <li>Напольный унитаз</li>
+                                <li>Трековое освещение</li>
+                                <li>Сантехника <strong>Zegor, Cerzanit, Santek</strong></li>
+                            </ul>
+                        </div>
+                        <a href="#contact"
+                            class="selectPackageButton p-card-btn p-card-btn-outline btn btn-lg btn-primary fnt-fam-nunito p-card-fixed-btn main-border-radius"
+                            data-value="option1">
+                            Отправить заявку
+                        </a>
+                    </div>
+                </div>
+                <div class="pricing-card">
+                    <div class="inner-pricing-card glow-card pb-5">
+                        <div class="p-card-header glow-card bg-gradient-blue">
+                            <h2 class="fnt-fam-montserrat m-0 text-light"><b>Comfort</b></h2>
+                            <p class="fnt-fam-montserrat text-light">Стоимость указана за кв. метр</p>
+                        </div>
+                        <div class="p-card-body px-5 my-5">
+                            <h1 class="fnt-fam-nunito mb-5">115 000 тг<small class="fw-light">/м²</small></h1>
+                            <ul class="p-card-body-list fnt-fam-montserrat">
+                                <li>Ламинат 33 класс, 8 мм - <strong>Kronostar, Kastamonu</strong></li>
+                                <li>Плинтус 10 см / Молдинги полиуретан</li>
+                                <li>Двери с эмалью - <strong>VellDoris / Dveriline / Zadoor</strong> (Россия)</li>
+                                <li>Унитаз - <strong>Grossman / Grohe</strong> (опционально)</li>
+                                <li>Розетки, выключатели - <strong>Legrand Etika, Schneider Atlas</strong></li>
+                                <li>Сантехника <strong>LeMark, Bravat, Grohe</strong> (опционально)</li>
+                                <li>Краска - <strong>Ceresit, Teks, Derufa</strong> (опционально)</li>
+                                <li>Обои под покраску - <strong>Bravo</strong></li>
+                                <li>Керамогранит - <strong>Italica, Estima, Vitra</strong></li>
+                                <li>Тумба под раковину - <strong>Домино</strong> (Россия)</li>
+                            </ul>
+                        </div>
+                        <a href="#contact"
+                            class="selectPackageButton i-btn no-border p-card-btn btn btn-lg btn-primary fnt-fam-nunito main-border-radius"
+                            data-value="option2">
+                            Отправить заявку
+                        </a>
+                    </div>
+                </div>
+                <div class="pricing-card">
+                    <div class="inner-pricing-card">
+                        <div class="p-card-header">
+                            <h2 class="fnt-fam-montserrat m-0" style="height: 38.5px; font-size:20px"><b>Дополнительные
+                                    услуги</b></h2>
+                            <p class="fnt-fam-montserrat">Добавляется к общей стоимости за кв. метр</p>
+                        </div>
+                        <div class="p-card-body px-5 my-5">
+                            <h1 class="fnt-fam-nunito my-2">+3 000 тг<small class="text-muted fw-light">/м²</small></h1>
+                            <p class="fnt-fam-montserrat">Адаптация Рабочего проекта под Вашу планировку</p>
+                            <h1 class="fnt-fam-nunito mt-5 mb-2">+2 000 тг<small class="text-muted fw-light">/м²</small>
+                            </h1>
+                            <p class="fnt-fam-montserrat">Вся сантехника только бренда Grohe</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="gallery" class="container-fluid bg-a-blue">
+        <div class="container section">
+            <div class="section-title-container">
+                <h1 class="section-title">Наши работы</h1>
+                <p class="section-text fs-5 text-muted">Примеры выполненных работ, которыми гордится наша команда</p>
+            </div>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 content-center">
+                <div class="col">
+                    <div class="album-card card no-border cursor-zoom-in"
+                        style="background-image: url(static/images/works/1.jpg)" onclick="openModal();currentSlide(1)">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="album-card card no-border cursor-zoom-in"
+                        style="background-image: url(static/images/works/2.jpg)" onclick="openModal();currentSlide(2)">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="album-card card no-border cursor-zoom-in"
+                        style="background-image: url(static/images/works/3.jpg)" onclick="openModal();currentSlide(3)">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="album-card card no-border cursor-zoom-in"
+                        style="background-image: url(static/images/works/4.jpg)" onclick="openModal();currentSlide(4)">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="album-card card no-border cursor-zoom-in"
+                        style="background-image: url(static/images/works/5.jpg)" onclick="openModal();currentSlide(5)">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="album-card card no-border cursor-zoom-in"
+                        style="background-image: url(static/images/works/6.jpg)" onclick="openModal();currentSlide(6)">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="album-card card no-border cursor-zoom-in"
+                        style="background-image: url(static/images/works/7.jpg)" onclick="openModal();currentSlide(7)">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="album-card card no-border cursor-zoom-in"
+                        style="background-image: url(static/images/works/8.jpg)" onclick="openModal();currentSlide(8)">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="section">
+            <div class="section-title-container">
+                <h1 class="section-title">Что говорят наши клиенты</h1>
+            </div>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 mb-3 text-center content-center">
+                <div class="my-4">
+                    <div class="card no-border card-plain text-center card-shadow height-100">
+                        <p>
+                            <img class="avatar avatar-xl shadow" src="static/images/client-1.jpg">
+                        </p>
+                        <div class="card-body">
+                            <h4 class="card-title fnt-fam-nunito">Омаров Жарас</h4>
+                            <p class="card-description">
+                                Спасибо команде строителей за быструю и чистую работу. Вся работа от начала до конца
+                                была сделана в точные сроки. Все условия мы обсудили при первой же встрече, не было
+                                никаких подводных камней
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="my-4">
+                    <div class="card no-border card-plain text-center card-shadow height-100">
+                        <p>
+                            <img class="avatar avatar-xl shadow" src="static/images/client-2.jpg">
+                        </p>
+                        <div class="card-body">
+                            <h4 class="card-title fnt-fam-nunito">Лера и Дима</h4>
+                            <p class="card-description">
+                                Отдельное спасибо Олегу и Диазу, вы сделали все даже лучше, чем мы представляли себе.
+                                Ребята помогли доработать наш дизайн-проект и уложить все по местам.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="my-4">
+                    <div class="card no-border card-plain text-center card-shadow height-100">
+                        <p>
+                            <img class="avatar avatar-xl shadow" src="static/images/client-3.jpg">
+                        </p>
+                        <div class="card-body">
+                            <h4 class="card-title fnt-fam-nunito">Алия Ораз</h4>
+                            <p class="card-description">
+                                Команда рабочих делала ремонт в нашем большом офисе. Все сделали очень быстро, все
+                                стадии ремонта были четко обговорены заранее и рассчитаны. Было приятным сюрпризом
+                                получить готовый офис на три дня раньше запланированного времени.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="contact" class="container-fluid bg-gradient-darkblue-2 hei pos-relative padding-y-10">
+        <img id="waves-img" class="pos-absolute opacity-6 width-100 top-0 left-0 " src="static/images/waves-white.svg"
+            alt="white-waves" />
+        <div class="container pos-relative">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 d-flex justify-content-center flex-column">
+                    <h2 class="text-white fnt-fam-montserrat">Рассчитайте стоимость ремонта</h2>
+                    <p class="lead pe-5 text-white opacity-8 z-index-1 fnt-fam-nunito">
+                        Мы свяжемся с вами, сделаем замеры, расчеты работ и отправим вам документы на подпись в течение
+                        2-3х дней</p>
+                    <p class="mt-4 text-white opacity-8 z-index-1">г. Астана, пр. Туран</p>
+                    <div class="d-flex p-2 text-white opacity-8">
+                        <div>
+                            <i class="fas fa-phone text-sm" aria-hidden="true"></i>
+                        </div>
+                        <div class="ps-3">
+                            <span class="text-sm">+7 701 242 67 91</span>
+                        </div>
+                    </div>
+                    <div class="d-flex p-2 text-white opacity-8">
+                        <div>
+                            <i class="fas fa-envelope text-sm" aria-hidden="true"></i>
+                        </div>
+                        <div class="ps-3">
+                            <span class="text-sm">info@renovation.kz</span>
+                        </div>
+                    </div>
+                    <div class="d-flex p-2 text-white opacity-8">
+                        <div>
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <div class="ps-3">
+                            <span class="text-sm">Пн.– Сб. 9:00–18:00
+                            </span>
+                        </div>
+                    </div>
+                    <div class="d-flex p-2 text-white opacity-8">
+                        <div>
+                            <a class="text-light" href="https://www.instagram.com/s.renovation_/" target="_blank">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                        </div>
+                        <div class="ps-3">
+                            <span class="text-sm">@s.renovation_
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card mt-5 mt-lg-0">
+                        <!-- FORM BEGIN -->
+                        <form id="contact-form" method="post" autocomplete="off">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Имя <span class="text-danger">*</span></label>
+                                        <div class="input-group mb-4">
+                                            <input class="form-control" placeholder="Ваше имя"
+                                                aria-label="First Name..." type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Email адрес <span class="text-danger">*</span></label>
+
+                                        <div class="input-group">
+                                            <input type="email" class="form-control" placeholder="example@gmail.com">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="validationCustom04" class="form-label">Пакет <span
+                                            class="text-danger">*</span></label>
+                                    <select class="form-select" id="validationCustom04" required>
+                                        <option selected disabled>Выберите пакет</option>
+                                        <option value="option1">Standart</option>
+                                        <option value="option2">Comfort</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 mt-2 mb-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck"
+                                            required>
+                                        <label class="form-check-label mb-0 mx-2" for="invalidCheck">
+                                            Дополнительные услуги
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Дополнительная информация</label>
+                                    <textarea name="message" class="form-control" placeholder="Напишите тут"
+                                        id="message" rows="3"></textarea>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <button type="submit"
+                                            class="btn btn-primary px-4 me-md-2 i-btn mt-3 main-border-radius">Отправить
+                                            заявку</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- FORM END -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="padding-y-5">
+        <div class="container">
+            <div class="row my-5">
+                <div class="col-md-6 mx-auto text-center">
+                    <h2 class="section-title">Часто задаваемые вопросы</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-10 mx-auto">
+                    <div class="accordion" id="accordionRental">
+                        <div class="accordion-item mb-3 no-border">
+                            <h5 class="accordion-header" id="headingOne">
+                                <button 
+                                    class="font-size-2 accordion-button border-bottom-white font-weight-bold fnt-fam-nunito collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                    Сколько стоит вызов замерщика?
+                                </button>
+                            </h5>
+                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne">
+                                <div class="font-size-1 accordion-body text-sm opacity-8 fnt-fam-nunito">
+                                    Эта бесплатная услуга
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item mb-3 no-border">
+                            <h5 class="accordion-header" id="headingTwo">
+                                <button
+                                    class="font-size-2 accordion-button border-bottom-white font-weight-bold fnt-fam-nunito collapsed"  type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Может ли заказчик сам предоставить материалы?
+                                </button>
+                            </h5>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo">
+                                <div class="font-size-1 accordion-body text-sm opacity-8 fnt-fam-nunito">
+                                    Конечно. Об этом нужно будет сказать замерщику или нашему менеджеру по телефону до
+                                    начала составления договора
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item mb-3 no-border">
+                            <h5 class="accordion-header" id="headingThree">
+                                <button
+                                    class="font-size-2 accordion-button border-bottom-white font-weight-bold fnt-fam-nunito collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Сколько времени длится ремонт?
+                                </button>
+                            </h5>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree">
+                                <div class="font-size-1 accordion-body text-sm opacity-8 fnt-fam-nunito">
+                                    Это зависит от типа работ и размера площади. Точные сроки будут зафиксировано в
+                                    договоре
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="padding-y-5 bg-a-blue">
+        <div class="container">
+            <div class="row my-5">
+                <div class="col-md-6 mx-auto text-center">
+                    <h2 class="section-title">Из каких этапов состоит ремонт?</h2>
+                </div>
+            </div>
+            <div class="wrapper">
+                <ol class="c-stepper">
+                    <li class="c-stepper__item">
+                        <div class="c-stepper__content">
+                            <h3 class="c-stepper__title fnt-fam-montserrat">Заявка</h3>
+                            <p class="c-stepper__desc fnt-fam-nunito" style="line-height: 1.4;">Вы оставляете заявку на
+                                расчет стоимости ремонта и встречаетесь с замерщиком</p>
+                        </div>
+                    </li>
+                    <li class="c-stepper__item">
+                        <div class="c-stepper__content">
+                            <h3 class="c-stepper__title fnt-fam-montserrat">Расчет стоимости</h3>
+                            <p class="c-stepper__desc fnt-fam-nunito">В этот же день мы производим расчет и высылаем вам
+                                договор на подпись</p>
+                        </div>
+                    </li>
+                    <li class="c-stepper__item">
+                        <div class="c-stepper__content">
+                            <h3 class="c-stepper__title fnt-fam-montserrat">Строительство</h3>
+                            <p class="c-stepper__desc fnt-fam-nunito">На следующий день мы завозим материалы и начинаем
+                                работы</p>
+                        </div>
+                    </li>
+                    <li class="c-stepper__item">
+                        <div class="c-stepper__content">
+                            <h3 class="c-stepper__title fnt-fam-montserrat">Прием работы</h3>
+                            <p class="c-stepper__desc fnt-fam-nunito">Вы принимаете, утверждаете и оплачиваете каждый
+                                этап работ</p>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <div id="advantages" class="container-fluid">
+        <div class="container">
+            <div class="section">
+                <div class="section-title-container">
+                    <h1 class="section-title">Что делает нас подходящими для вас?</h1>
+                </div>
+
+                <div class="row g-4 py-5 row-cols-1 row-cols-lg-3 row-cols-md-3">
+                    <div class="feature col mb-4">
+                        <div class="circle bg-blue d-inline-flex align-items-center content-center text-light mb-3">
+                            1
+                        </div>
+                        <h3 class="font-size-2 text-color-blue fnt-fam-montserrat">Цена известна заранее</h3>
+                        <p>Она фиксирована. Мы составляем план и смету в день приезда замерщика.</p>
+                    </div>
+                    <div class="feature col mb-4">
+                        <div class="circle bg-blue d-inline-flex align-items-center content-center text-light mb-3">
+                            2
+                        </div>
+                        <h3 class="font-size-2 text-color-blue fnt-fam-montserrat">Ремонт включен в сумму ипотеки</h3>
+                        <p>Для Вашего удобства. Возможность получить более низкую ставку, комфортный ежемесячный платеж.
+                        </p>
+                    </div>
+                    <div class="feature col mb-4">
+                        <div class="circle bg-blue d-inline-flex align-items-center content-center text-light mb-3">
+                            3
+                        </div>
+                        <h3 class="font-size-2 text-color-blue fnt-fam-montserrat">Гарантия на ремонт</h3>
+                        <p>На все ремонтные работы мы даем официальную гарантию 1 год.</p>
+                    </div>
+                    <div class="feature col mb-4">
+                        <div class="circle bg-blue d-inline-flex align-items-center content-center text-light mb-3">
+                            4
+                        </div>
+                        <h3 class="font-size-2 text-color-blue fnt-fam-montserrat">Качественные материалы без наценки
+                        </h3>
+                        <p>Экономия времени и дополнительных затрат. Закупим и доставим на объект. Работаем с
+                            материалами качественных компаний.</p>
+                    </div>
+                    <div class="feature col mb-4">
+                        <div class="circle bg-blue d-inline-flex align-items-center content-center text-light mb-3">
+                            5
+                        </div>
+                        <h3 class="font-size-2 text-color-blue fnt-fam-montserrat">Специалисты своего дела</h3>
+                        <p>Мы за разделение труда. Над каждым проектом работают специалисты узкого профиля.</p>
+                    </div>
+                    <div class="feature col mb-4">
+                        <div class="circle bg-blue d-inline-flex align-items-center content-center text-light mb-3">
+                            6
+                        </div>
+                        <h3 class="font-size-2 text-color-blue fnt-fam-montserrat">Соблюдение сроков</h3>
+                        <p>Мы всегда устанавливаем для работ оптимальные и реальные сроки.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer py-4 bg-gradient-darkblue-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-3 text-start my-auto">
+                    <p class="mb-0 text-white text-sm">
+                        Copyright ©
+                        <script>document.write(new Date().getFullYear())</script> S-RENOVATION.
+                    </p>
+                </div>
+                <div class="col-lg-5 col-md-8 ms-auto text-end">
+                    <ul class="nav flex-row ms-n3 align-items-center mt-4 mt-sm-0">
+                        <li class="nav-item">
+                            <a class="nav-link text-white opacity-8" href="index.htm">
+                                Главная
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white opacity-8" href="index.htm#services">
+                                Услуги
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-white opacity-8" href="index.htm#prices">
+                                Цены
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white opacity-8" href="index.htm#contact">
+                                Контакты
+                            </a>
+                        </li>
+
+                        <li class="nav-item ms-auto">
+                            <a class="text-light" href="https://www.instagram.com/s.renovation_/" target="_blank">
+                                <i class="fa-brands fa-instagram fa-lg"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div id="galleryModal" class="gallery-modal bg-dark">
+        <button type="button" class="btn-close pos-absolute i-btn-close"
+            style="background-image: url(static/images/icons/close-btn.svg);" onclick="closeModal()"></button>
+        <div class="modal-inner w-100 align-center">
+            <div class="slides">
+                <img src="static/images/works/1.jpg" class="d-block" alt="...">
+            </div>
+            <div class="slides">
+                <img src="static/images/works/2.jpg" class="d-block" alt="...">
+            </div>
+            <div class="slides">
+                <img src="static/images/works/3.jpg" class="d-block" alt="...">
+            </div>
+            <div class="slides">
+                <img src="static/images/works/4.jpg" class="d-block" alt="...">
+            </div>
+            <div class="slides">
+                <img src="static/images/works/5.jpg" class="d-block" alt="...">
+            </div>
+            <div class="slides">
+                <img src="static/images/works/6.jpg" class="d-block" alt="...">
+            </div>
+            <div class="slides">
+                <img src="static/images/works/7.jpg" class="d-block" alt="...">
+            </div>
+            <div class="slides">
+                <img src="static/images/works/8.jpg" class="d-block" alt="...">
+            </div>
+            <button class="carousel-control-prev w-5" type="button" onclick="plusSlides(-1)">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next w-5" type="button" onclick="plusSlides(1)">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+</body>
+
+</html>
