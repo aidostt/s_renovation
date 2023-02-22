@@ -12,13 +12,13 @@ import (
 	"net/http"
 	"os"
 	"s_renovation.net/internal/data"
+	"s_renovation.net/internal/jsonlog"
 	"time"
 )
 
 type application struct {
 	config        config
-	infoLog       *log.Logger
-	errorLog      *log.Logger
+	logger        *jsonlog.Logger
 	models        data.Models
 	formDecoder   *form.Decoder
 	templateCache map[string]*template.Template
@@ -44,31 +44,32 @@ func main() {
 	flag.DurationVar(&cfg.db.maxIdleTime, "maxIdleTime", time.Duration(10), "maximum idle time of one connection")
 	flag.Parse()
 
-	infoLog := log.New(os.Stdout, "info\t", log.LstdFlags)
-	errorLog := log.New(os.Stdout, "error\t", log.LstdFlags|log.Lshortfile)
+	logger := jsonlog.New(os.Stdout, jsonlog.LevelInfo)
 
 	client, err := openDB(cfg)
 	if err != nil {
-		errorLog.Fatalf("Could not connect to MongoDB Atlas: %v", err)
+		logger.PrintFatal(err, nil)
 	}
-	infoLog.Println("Connected to Mongo Atlas!")
+
+	logger.PrintInfo("database connection pool established", nil)
 	defer func() {
 		if err := client.Disconnect(context.TODO()); err != nil {
-			errorLog.Fatalf("Couldn't close the database connection, due to: %v", err)
+			logger.PrintFatal(err, nil) //nigga
 		}
 	}()
 
 	templateCache, err := newTemplateCache()
 	if err != nil {
-		errorLog.Fatal(err)
+		logger.PrintFatal(err, nil)
 	}
 
 	formDecoder := form.NewDecoder()
-	
+
 	app := application{
-		config:        cfg,
-		infoLog:       infoLog,
-		errorLog:      errorLog,
+		config: cfg,
+		logger: logger,
+		//infoLog:       infoLog, //nigga
+		//errorLog:      errorLog, //nigga
 		models:        data.NewModels(client),
 		formDecoder:   formDecoder,
 		templateCache: templateCache,
@@ -76,11 +77,16 @@ func main() {
 	srv := http.Server{
 		Addr:     fmt.Sprintf("localhost:%v", cfg.port),
 		Handler:  app.Router(),
-		ErrorLog: errorLog,
+		ErrorLog: log.New(logger, "", 0), //nigga
 	}
-	infoLog.Printf("staring %v server on %v", cfg.env, srv.Addr)
+
+	logger.PrintInfo("starting server", map[string]string{
+		"addr": srv.Addr,
+		"env":  cfg.env,
+	})
+
 	err = srv.ListenAndServe()
-	errorLog.Fatalln(err)
+	logger.PrintFatal(err, nil)
 
 }
 

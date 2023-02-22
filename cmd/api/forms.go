@@ -7,7 +7,7 @@ import (
 )
 
 func (app *application) healthCheckHandler(w http.ResponseWriter, r *http.Request) {
-	app.errorLog.Print("fake error")
+	app.logger.PrintInfo("fake error", nil) // nigga
 	w.Write([]byte("Successful connection"))
 
 }

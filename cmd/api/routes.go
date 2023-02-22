@@ -20,7 +20,7 @@ func (app *application) Router() *httprouter.Router {
 
 	router.HandlerFunc(http.MethodGet, "/", app.home)
 
-	router.HandlerFunc(http.MethodGet, "/signup", app.userSignup)
+	router.HandlerFunc(http.MethodGet, "/signup", app.registerUserHandlerGET)
 	router.HandlerFunc(http.MethodGet, "/signin", app.userSignin)
 
 	router.HandlerFunc(http.MethodGet, "/user/profile", app.showUserProfile)
