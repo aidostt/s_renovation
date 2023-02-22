@@ -49,8 +49,8 @@ func (app *application) registerUserHandler(w http.ResponseWriter, r *http.Reque
 
 	v := validator.New()
 	if data.ValidateUser(v, user); !v.Valid() {
-		app.errorLog.Print("failed to validate user")
-		app.errorLog.Println(v.Errors)
+		app.logger.PrintInfo("failed to validate user", nil)
+		app.failedValidationResponse(w, r, v.Errors)
 	}
 	err = app.models.User.Insert(user)
 	if err != nil {
@@ -69,12 +69,12 @@ func (app *application) showUserHandler(w http.ResponseWriter, r *http.Request) 
 	var email string
 	err := json.NewDecoder(r.Body).Decode(&email)
 	if err != nil {
-		app.errorLog.Print("server error response")
+		app.logger.PrintInfo("server error response", nil)
 	}
 	v := validator.New()
 	if data.ValidateEmail(v, email); !v.Valid() {
-		app.errorLog.Print("couldn't validate email")
-		app.errorLog.Println(v.Errors)
+		app.logger.PrintInfo("couldn't validate email", nil)
+		app.failedValidationResponse(w, r, v.Errors) //nigga
 	}
 	user, err := app.models.User.GetByEmail(email)
 	if err != nil {
@@ -91,26 +91,26 @@ func (app *application) showUserHandler(w http.ResponseWriter, r *http.Request) 
 func (app *application) userSignup(w http.ResponseWriter, r *http.Request) {
 	data := app.newTemplateData(r)
 	data.Form = userSignupForm{}
-	app.render(w, http.StatusOK, "signup.htm", data)
+	app.render(w, http.StatusOK, "signup.htm", data, r)
 }
 
 func (app *application) userSignin(w http.ResponseWriter, r *http.Request) {
 	data := app.newTemplateData(r)
 	data.Form = userLoginForm{}
-	app.render(w, http.StatusOK, "signin.htm", data)
+	app.render(w, http.StatusOK, "signin.htm", data, r)
 }
 
 func (app *application) showUserProfile(w http.ResponseWriter, r *http.Request) {
 	data := app.newTemplateData(r)
-	app.render(w, http.StatusOK, "userProfile.htm", data)
+	app.render(w, http.StatusOK, "userProfile.htm", data, r)
 }
 
 func (app *application) showUserSettings(w http.ResponseWriter, r *http.Request) {
 	data := app.newTemplateData(r)
-	app.render(w, http.StatusOK, "userSettings.htm", data)
+	app.render(w, http.StatusOK, "userSettings.htm", data, r)
 }
 
 func (app *application) showUserOrders(w http.ResponseWriter, r *http.Request) {
 	data := app.newTemplateData(r)
-	app.render(w, http.StatusOK, "userOrders.htm", data)
+	app.render(w, http.StatusOK, "userOrders.htm", data, r)
 }

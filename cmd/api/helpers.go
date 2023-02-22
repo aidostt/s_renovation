@@ -6,7 +6,6 @@ import (
 	"fmt"
 	"github.com/go-playground/form"
 	"net/http"
-	"runtime/debug"
 )
 
 type envelope map[string]interface{}
@@ -51,18 +50,18 @@ func (app *application) writeJSON(w http.ResponseWriter, status int, data envelo
 	return nil
 }
 
-func (app *application) serverError(w http.ResponseWriter, err error) {
-	trace := fmt.Sprintf("%s\n%s", err.Error(), debug.Stack())
-	app.errorLog.Output(2, trace)
-	http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
-}
+//func (app *application) serverError(w http.ResponseWriter, err error) {
+//	trace := fmt.Sprintf("%s\n%s", err.Error(), debug.Stack())
+//	app.errorLog.Output(2, trace)
+//	http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
+//}
 
-func (app *application) render(w http.ResponseWriter, status int, page string, data *templateData) {
+func (app *application) render(w http.ResponseWriter, status int, page string, data *templateData, r *http.Request) {
 	ts, ok := app.templateCache[page]
 
 	if !ok {
 		err := fmt.Errorf("the template %s does not exit", page)
-		app.serverError(w, err)
+		app.serverErrorResponse(w, r, err)
 		return
 	}
 
@@ -70,6 +69,6 @@ func (app *application) render(w http.ResponseWriter, status int, page string, d
 
 	err := ts.ExecuteTemplate(w, "base", data)
 	if err != nil {
-		app.serverError(w, err)
+		app.serverErrorResponse(w, r, err)
 	}
 }
