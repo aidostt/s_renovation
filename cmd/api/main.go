@@ -7,6 +7,7 @@ import (
 	"github.com/go-playground/form"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
+	"html/template"
 	"log"
 	"net/http"
 	"os"
@@ -15,11 +16,12 @@ import (
 )
 
 type application struct {
-	config      config
-	infoLog     *log.Logger
-	errorLog    *log.Logger
-	models      data.Models
-	formDecoder *form.Decoder
+	config        config
+	infoLog       *log.Logger
+	errorLog      *log.Logger
+	models        data.Models
+	formDecoder   *form.Decoder
+	templateCache map[string]*template.Template
 }
 
 type config struct {
@@ -55,13 +57,21 @@ func main() {
 			errorLog.Fatalf("Couldn't close the database connection, due to: %v", err)
 		}
 	}()
+
+	templateCache, err := newTemplateCache()
+	if err != nil {
+		errorLog.Fatal(err)
+	}
+
 	formDecoder := form.NewDecoder()
+	
 	app := application{
-		config:      cfg,
-		infoLog:     infoLog,
-		errorLog:    errorLog,
-		models:      data.NewModels(client),
-		formDecoder: formDecoder,
+		config:        cfg,
+		infoLog:       infoLog,
+		errorLog:      errorLog,
+		models:        data.NewModels(client),
+		formDecoder:   formDecoder,
+		templateCache: templateCache,
 	}
 	srv := http.Server{
 		Addr:     fmt.Sprintf("localhost:%v", cfg.port),

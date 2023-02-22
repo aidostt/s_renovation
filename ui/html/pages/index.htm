@@ -1,32 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+{{define "title"}}Чистовая отделка от Sensata Group{{end}}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&family=Nunito+Sans:wght@200;300;400;600;800&display=swap"
-        rel="stylesheet">
-    <link rel="shortcut icon" href="static/images/shortcut_icon.ico" type="image/x-icon">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-        crossorigin="anonymous"></script>
-    <script defer src="https://code.jquery.com/jquery-3.6.3.min.js"
-        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
-    <script defer src="https://kit.fontawesome.com/38606480b3.js" crossorigin="anonymous"></script>
-    <script defer src="static/js/script.js"></script>
-    <script defer src="static/js/galleryModal.js"></script>
-    <link rel="stylesheet" href="static/css/style.css">
-    <title>Чистовая отделка от Sensata Group</title>
-</head>
-
-<body>
+{{define "body"}}
     <div id="preloader" class="d-flex content-center align-center">
         <div class="spinner-grow text-color-blue" role="status">
             <span class="visually-hidden">Loading...</span>
@@ -40,25 +14,25 @@
                     <i class="fa-brands fa-instagram fa-xl"></i>
                 </a>
                 <div class="brand">
-                    <a href="index.htm"
+                    <a href="/"
                         class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-                        <img class="brand-img" src="static/images/brand_logo/brand-3.png" alt="s-renovation">
+                        <img class="brand-img" src="../../static/images/brand_logo/brand-3.png" alt="s-renovation">
                     </a>
                 </div>
                 <ul id="navbar-lists" class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="index.htm#services" class="i-nav-link nav-link px-4 link-light">Услуги</a></li>
-                    <li><a href="index.htm#gallery" class="i-nav-link nav-link px-4 link-light">Работы</a></li>
-                    <li><a href="index.htm#prices" class="i-nav-link nav-link px-4 link-light">Цены</a></li>
-                    <li><a href="index.htm#contact" class="i-nav-link nav-link px-4 link-light">Контакты</a></li>
-                    <li><a href="index.htm#advantages" class="i-nav-link nav-link px-4 link-light">Преимущества</a>
+                    <li><a href="#services" class="i-nav-link nav-link px-4 link-light">Услуги</a></li>
+                    <li><a href="#gallery" class="i-nav-link nav-link px-4 link-light">Работы</a></li>
+                    <li><a href="#prices" class="i-nav-link nav-link px-4 link-light">Цены</a></li>
+                    <li><a href="#contact" class="i-nav-link nav-link px-4 link-light">Контакты</a></li>
+                    <li><a href="#advantages" class="i-nav-link nav-link px-4 link-light">Преимущества</a>
                     </li>
                 </ul>
                 <div id="navbar-btn" class="text-end">
-                    <a href="signin.htm" class="btn btn-outline-primary me-2 signin main-border-radius">Войти</a>
-                    <a href="signup.htm" class="btn btn-primary signup main-border-radius">Зарегистрироваться</a>
+                    <a href="/signin" class="btn btn-outline-primary me-2 signin main-border-radius">Войти</a>
+                    <a href="/signup" class="btn btn-primary signup main-border-radius">Зарегистрироваться</a>
                 </div>
-                <a href="#" class="d-flex align-items-center justify-content-center link-dark text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="static/images/client-1.jpg" alt="mdo" width="40" height="40" class="rounded-circle">
+                <a class="d-flex align-items-center justify-content-center link-dark text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="../../static/images/client-1.jpg" alt="mdo" width="40" height="40" class="rounded-circle">
                 </a>
                 <ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3 no-border" aria-labelledby="profileDropdown">
                     <!-- Profile info -->
@@ -66,7 +40,7 @@
                         <div class="d-flex align-items-center">
                             <!-- Avatar -->
                             <div class="avatar me-3">
-                                <img class="avatar-img rounded-circle" src="static/images/client-1.jpg" alt="avatar" style="width:inherit;">
+                                <img class="avatar-img rounded-circle" src="../../static/images/client-1.jpg" alt="avatar" style="width:inherit;">
                             </div>
                             <div>
                                 <a class="h6 mt-2 mt-sm-0" href="#">Жарас</a>
@@ -76,13 +50,13 @@
                     </li>
                         <hr class="dropdown-divider">
                     <!-- Links -->
-                    <li><a class="dropdown-item" href="userProfile.htm">Профиль</a></li>
-                    <li><a class="dropdown-item" href="#">Настройки</a></li>
-                    <li><a class="dropdown-item" href="#">Заявки</a></li>
+                    <li><a class="dropdown-item" href="/user/profile">Профиль</a></li>
+                    <li><a class="dropdown-item" href="/user/settings">Настройки</a></li>
+                    <li><a class="dropdown-item" href="/user/orders">Заявки</a></li>
                     <li><a class="dropdown-item bg-danger-soft-hover" href="#">Выйти</a></li>
                 </ul>
                 <a href="#" class="d-flex align-items-center justify-content-center link-dark text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="static/images/client-3.jpg" alt="mdo" width="40" height="40" class="rounded-circle">
+                    <img src="../../static/images/client-3.jpg" alt="mdo" width="40" height="40" class="rounded-circle">
                 </a>
                 <ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3 no-border" aria-labelledby="profileDropdown">
                     <!-- Profile info -->
@@ -90,19 +64,19 @@
                         <div class="d-flex align-items-center">
                             <!-- Avatar -->
                             <div class="avatar me-3">
-                                <img class="avatar-img rounded-circle" src="static/images/client-3.jpg" alt="avatar" style="width:inherit;">
+                                <img class="avatar-img rounded-circle" src="../../static/images/client-3.jpg" alt="avatar" style="width:inherit;">
                             </div>
                             <div>
-                                <a class="h6 mt-2 mt-sm-0" href="#">Алия</a>
+                                <a class="h6 mt-2 mt-sm-0">Алия</a>
                                 <p class="small m-0">example@gmail.com</p>
                             </div>
                         </div>
                     </li>
                         <hr class="dropdown-divider">
                     <!-- Links -->
-                    <li><a class="dropdown-item" href="userProfile.htm">Админ панель</a></li>
-                    <li><a class="dropdown-item" href="admin/customers.htm">Клиенты</a></li>
-                    <li><a class="dropdown-item" href="#">Заявки</a></li>
+                    <li><a class="dropdown-item" href="/admin">Админ панель</a></li>
+                    <li><a class="dropdown-item" href="/admin/customers">Клиенты</a></li>
+                    <li><a class="dropdown-item" href="/admin/orders">Заявки</a></li>
                     <li><a class="dropdown-item bg-danger-soft-hover" href="#">Выйти</a></li>
                 </ul>
                 <a id="offcanvas-btn" class="btn" data-bs-toggle="offcanvas" href="#offcanvas" role="button"
@@ -135,9 +109,9 @@
                     <div class="offcanvas-header">
                         <h5 class="offcanvas-title" id="offcanvasLabel">
                             <div class="brand">
-                                <a href="index.htm"
+                                <a href="/"
                                     class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-                                    <img class="brand-img" src="static/images/brand_logo/brand-2.png"
+                                    <img class="brand-img" src="../../static/images/brand_logo/brand-2.png"
                                         alt="s-renovation">
                                 </a>
                             </div>
@@ -147,24 +121,24 @@
                     <hr>
                     <ul class="nav nav-pills flex-column mb-auto">
                         <li class="nav-item">
-                            <a href="index.htm" class="nav-link active bg-blue main-border-radius" aria-current="page">Главная</a>
+                            <a href="/" class="nav-link active bg-blue main-border-radius" aria-current="page">Главная</a>
                         </li>
                         <li>
-                            <a href="index.htm#gallery" class="nav-link link-dark main-border-radius">Работы</a>
+                            <a href="#gallery" class="nav-link link-dark main-border-radius">Работы</a>
                         </li>
                         <li>
-                            <a href="index.htm#prices" class="nav-link link-dark main-border-radius">Цены</a>
+                            <a href="#prices" class="nav-link link-dark main-border-radius">Цены</a>
                         </li>
                         <li>
-                            <a href="index.htm#contact" class="nav-link link-dark main-border-radius">Контакты</a>
+                            <a href="#contact" class="nav-link link-dark main-border-radius">Контакты</a>
                         </li>
                         <li>
-                            <a href="index.htm#advantages" class="nav-link link-dark main-border-radius">Преимущества</a>
+                            <a href="#advantages" class="nav-link link-dark main-border-radius">Преимущества</a>
                         </li>
                     </ul>
                     <div class="d-flex text-end mb-3 justify-content-between">
-                        <a href="signin.htm" class="btn btn-primary main-border-radius" style="flex: 1 0 0; margin-right: 15px;">Войти</a>
-                        <a href="signup.htm" class="btn btn-primary main-border-radius" style="flex: 1 0 0;">Зарегистрироваться</a>
+                        <a href="/signin" class="btn btn-primary main-border-radius" style="flex: 1 0 0; margin-right: 15px;">Войти</a>
+                        <a href="/signup" class="btn btn-primary main-border-radius" style="flex: 1 0 0;">Зарегистрироваться</a>
                     </div>
                 </div>
             </header>
@@ -173,7 +147,7 @@
     <div class="container pos-relative m-top col-xxl-8 px-4 py-5">
         <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
             <div id="hero-image" class="col-10 col-sm-8 col-lg-7" width="700" height="500">
-                <img src="static/images/bg_header_4.jpg" class="hero-img d-block mx-lg-auto img-fluid" alt="Decoration"
+                <img src="../../static/images/bg_header_4.jpg" class="hero-img d-block mx-lg-auto img-fluid" alt="Decoration"
                      loading="lazy">
             </div>
             <div class="hero-section shadow-lg col-lg-7">
@@ -181,7 +155,7 @@
                 </h1>
                 <p class="tagline lead">Чистовая отделка от SENSATA GROUP</p>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                    <a href="index.htm#contact"
+                    <a href="#contact"
                         class="btn btn-primary btn-lg px-4 me-md-2 i-btn mt-4 mb-4 main-border-radius">Рассчитать
                         стоимость</a>
                 </div>
@@ -197,7 +171,7 @@
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-5  d-flex content-center">
                     <div class="col">
                         <div class="i-card shadow-sm">
-                            <img class="card-img" src="static/images/icons/Painting_works.svg" alt="Стены и пол">
+                            <img class="card-img" src="../../static/images/icons/Painting_works.svg" alt="Стены и пол">
                             <div class="card-body">
                                 <p class="card-title">Стены и пол</p>
                                 <p class="card-text fnt-fam-nunito">Выравнивание стен и стяжка пола. Финишное покрытие
@@ -207,7 +181,7 @@
                     </div>
                     <div class="col">
                         <div class="i-card shadow-sm">
-                            <img class="card-img" src="static/images/icons/communication.svg" alt="Коммуникации">
+                            <img class="card-img" src="../../static/images/icons/communication.svg" alt="Коммуникации">
                             <div class="card-body">
                                 <p class="card-title">Коммуникации</p>
                                 <p class="card-text fnt-fam-nunito">Подводка сетей электричества, канализации и
@@ -217,7 +191,7 @@
                     </div>
                     <div class="col">
                         <div class="i-card shadow-sm">
-                            <img class="card-img" src="static/images/icons/flooring.svg" alt="Напольное покрытие">
+                            <img class="card-img" src="../../static/images/icons/flooring.svg" alt="Напольное покрытие">
                             <div class="card-body">
                                 <p class="card-title">Напольное покрытие</p>
                                 <p class="card-text fnt-fam-nunito">Ламинат, керамогранит на входной зоне, теплые полы в
@@ -227,7 +201,7 @@
                     </div>
                     <div class="col">
                         <div class="i-card shadow-sm">
-                            <img class="card-img" src="static/images/icons/dismantling.svg" alt="Отделка санузлов">
+                            <img class="card-img" src="../../static/images/icons/dismantling.svg" alt="Отделка санузлов">
                             <div class="card-body">
                                 <p class="card-title">Отделка санузлов</p>
                                 <p class="card-text fnt-fam-nunito">Ламинат, керамогранит на входной зоне, теплые полы в
@@ -237,7 +211,7 @@
                     </div>
                     <div class="col">
                         <div class="i-card shadow-sm">
-                            <img class="card-img" src="static/images/icons/icons8--100.png" alt="Двери">
+                            <img class="card-img" src="../../static/images/icons/icons8--100.png" alt="Двери">
                             <div class="card-body">
                                 <p class="card-title">Двери</p>
                                 <p class="card-text fnt-fam-nunito">Установка межкомнатных дверей и молдингов</p>
@@ -246,7 +220,7 @@
                     </div>
                     <div class="col">
                         <div class="i-card shadow-sm">
-                            <img class="card-img" src="static/images/icons/icons8-philips-hue-g.png" alt="Потолки">
+                            <img class="card-img" src="../../static/images/icons/icons8-philips-hue-g.png" alt="Потолки">
                             <div class="card-body">
                                 <p class="card-title">Потолки</p>
                                 <p class="card-text fnt-fam-nunito">Потолки ГКЛ со встроенными светильниками</p>
@@ -255,7 +229,7 @@
                     </div>
                     <div class="col">
                         <div class="i-card shadow-sm">
-                            <img class="card-img" src="static/images/icons/icons8--100%20(1).png"
+                            <img class="card-img" src="../../static/images/icons/icons8--100%20(1).png"
                                 alt="Розетки и выключатели">
                             <div class="card-body">
                                 <p class="card-title">Розетки и выключатели</p>
@@ -265,7 +239,7 @@
                     </div>
                     <div class="col">
                         <div class="i-card shadow-sm">
-                            <img class="card-img" src="static/images/icons/14ht_bath.svg" alt="Ванные комнаты">
+                            <img class="card-img" src="../../static/images/icons/14ht_bath.svg" alt="Ванные комнаты">
                             <div class="card-body">
                                 <p class="card-title">Ванные комнаты</p>
                                 <p class="card-text fnt-fam-nunito">Ванные комнаты с сантехникой, ванной или душевой</p>
@@ -364,42 +338,42 @@
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 content-center">
                 <div class="col">
                     <div class="album-card card no-border cursor-zoom-in"
-                        style="background-image: url(static/images/works/1.jpg)" onclick="openModal();currentSlide(1)">
+                        style="background-image: url(../../static/images/works/1.jpg)" onclick="openModal();currentSlide(1)">
                     </div>
                 </div>
                 <div class="col">
                     <div class="album-card card no-border cursor-zoom-in"
-                        style="background-image: url(static/images/works/2.jpg)" onclick="openModal();currentSlide(2)">
+                        style="background-image: url(../../static/images/works/2.jpg)" onclick="openModal();currentSlide(2)">
                     </div>
                 </div>
                 <div class="col">
                     <div class="album-card card no-border cursor-zoom-in"
-                        style="background-image: url(static/images/works/3.jpg)" onclick="openModal();currentSlide(3)">
+                        style="background-image: url(../../static/images/works/3.jpg)" onclick="openModal();currentSlide(3)">
                     </div>
                 </div>
                 <div class="col">
                     <div class="album-card card no-border cursor-zoom-in"
-                        style="background-image: url(static/images/works/4.jpg)" onclick="openModal();currentSlide(4)">
+                        style="background-image: url(../../static/images/works/4.jpg)" onclick="openModal();currentSlide(4)">
                     </div>
                 </div>
                 <div class="col">
                     <div class="album-card card no-border cursor-zoom-in"
-                        style="background-image: url(static/images/works/5.jpg)" onclick="openModal();currentSlide(5)">
+                        style="background-image: url(../../static/images/works/5.jpg)" onclick="openModal();currentSlide(5)">
                     </div>
                 </div>
                 <div class="col">
                     <div class="album-card card no-border cursor-zoom-in"
-                        style="background-image: url(static/images/works/6.jpg)" onclick="openModal();currentSlide(6)">
+                        style="background-image: url(../../static/images/works/6.jpg)" onclick="openModal();currentSlide(6)">
                     </div>
                 </div>
                 <div class="col">
                     <div class="album-card card no-border cursor-zoom-in"
-                        style="background-image: url(static/images/works/7.jpg)" onclick="openModal();currentSlide(7)">
+                        style="background-image: url(../../static/images/works/7.jpg)" onclick="openModal();currentSlide(7)">
                     </div>
                 </div>
                 <div class="col">
                     <div class="album-card card no-border cursor-zoom-in"
-                        style="background-image: url(static/images/works/8.jpg)" onclick="openModal();currentSlide(8)">
+                        style="background-image: url(../../static/images/works/8.jpg)" onclick="openModal();currentSlide(8)">
                     </div>
                 </div>
             </div>
@@ -414,7 +388,7 @@
                 <div class="my-4">
                     <div class="card no-border card-plain text-center card-shadow height-100">
                         <p>
-                            <img class="avatar avatar-xl shadow" src="static/images/client-1.jpg">
+                            <img class="avatar avatar-xl shadow" src="../../static/images/client-1.jpg">
                         </p>
                         <div class="card-body">
                             <h4 class="card-title fnt-fam-nunito">Омаров Жарас</h4>
@@ -429,7 +403,7 @@
                 <div class="my-4">
                     <div class="card no-border card-plain text-center card-shadow height-100">
                         <p>
-                            <img class="avatar avatar-xl shadow" src="static/images/client-2.jpg">
+                            <img class="avatar avatar-xl shadow" src="../../static/images/client-2.jpg">
                         </p>
                         <div class="card-body">
                             <h4 class="card-title fnt-fam-nunito">Лера и Дима</h4>
@@ -443,7 +417,7 @@
                 <div class="my-4">
                     <div class="card no-border card-plain text-center card-shadow height-100">
                         <p>
-                            <img class="avatar avatar-xl shadow" src="static/images/client-3.jpg">
+                            <img class="avatar avatar-xl shadow" src="../../static/images/client-3.jpg">
                         </p>
                         <div class="card-body">
                             <h4 class="card-title fnt-fam-nunito">Алия Ораз</h4>
@@ -459,7 +433,7 @@
         </div>
     </div>
     <div id="contact" class="container-fluid bg-gradient-darkblue-2 hei pos-relative padding-y-10">
-        <img id="waves-img" class="pos-absolute opacity-6 width-100 top-0 left-0 " src="static/images/waves-white.svg"
+        <img id="waves-img" class="pos-absolute opacity-6 width-100 top-0 left-0 " src="../../static/images/waves-white.svg"
             alt="white-waves" />
         <div class="container pos-relative">
             <div class="row">
@@ -726,29 +700,29 @@
                 <div class="col-lg-6 col-md-3 text-start my-auto">
                     <p class="mb-0 text-white text-sm">
                         Copyright ©
-                        <script>document.write(new Date().getFullYear())</script> S-RENOVATION.
+                        {{.CurrentYear}} S-RENOVATION.
                     </p>
                 </div>
                 <div class="col-lg-5 col-md-8 ms-auto text-end">
                     <ul class="nav flex-row ms-n3 align-items-center mt-4 mt-sm-0">
                         <li class="nav-item">
-                            <a class="nav-link text-white opacity-8" href="index.htm">
+                            <a class="nav-link text-white opacity-8" href="/">
                                 Главная
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white opacity-8" href="index.htm#services">
+                            <a class="nav-link text-white opacity-8" href="#services">
                                 Услуги
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link text-white opacity-8" href="index.htm#prices">
+                            <a class="nav-link text-white opacity-8" href="#prices">
                                 Цены
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white opacity-8" href="index.htm#contact">
+                            <a class="nav-link text-white opacity-8" href="#contact">
                                 Контакты
                             </a>
                         </li>
@@ -765,31 +739,31 @@
     </footer>
     <div id="galleryModal" class="gallery-modal bg-dark">
         <button type="button" class="btn-close pos-absolute i-btn-close"
-            style="background-image: url(static/images/icons/close-btn.svg);" onclick="closeModal()"></button>
+            style="background-image: url(../../static/images/icons/close-btn.svg);" onclick="closeModal()"></button>
         <div class="modal-inner w-100 align-center">
             <div class="slides">
-                <img src="static/images/works/1.jpg" class="d-block" alt="...">
+                <img src="../../static/images/works/1.jpg" class="d-block" alt="...">
             </div>
             <div class="slides">
-                <img src="static/images/works/2.jpg" class="d-block" alt="...">
+                <img src="../../static/images/works/2.jpg" class="d-block" alt="...">
             </div>
             <div class="slides">
-                <img src="static/images/works/3.jpg" class="d-block" alt="...">
+                <img src="../../static/images/works/3.jpg" class="d-block" alt="...">
             </div>
             <div class="slides">
-                <img src="static/images/works/4.jpg" class="d-block" alt="...">
+                <img src="../../static/images/works/4.jpg" class="d-block" alt="...">
             </div>
             <div class="slides">
-                <img src="static/images/works/5.jpg" class="d-block" alt="...">
+                <img src="../../static/images/works/5.jpg" class="d-block" alt="...">
             </div>
             <div class="slides">
-                <img src="static/images/works/6.jpg" class="d-block" alt="...">
+                <img src="../../static/images/works/6.jpg" class="d-block" alt="...">
             </div>
             <div class="slides">
-                <img src="static/images/works/7.jpg" class="d-block" alt="...">
+                <img src="../../static/images/works/7.jpg" class="d-block" alt="...">
             </div>
             <div class="slides">
-                <img src="static/images/works/8.jpg" class="d-block" alt="...">
+                <img src="../../static/images/works/8.jpg" class="d-block" alt="...">
             </div>
             <button class="carousel-control-prev w-5" type="button" onclick="plusSlides(-1)">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -801,6 +775,4 @@
             </button>
         </div>
     </div>
-</body>
-
-</html>
+{{end}}

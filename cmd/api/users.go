@@ -9,6 +9,21 @@ import (
 	"time"
 )
 
+type userSignupForm struct {
+	Name                string `form:"name"`
+	Surname             string `form:"surname"`
+	Phone               string `form:"phone"`
+	Email               string `form:"email"`
+	Password            string `form:"password"`
+	validator.Validator `form:"-"`
+}
+
+type userLoginForm struct {
+	Email               string `form:"email"`
+	Password            string `form:"password"`
+	validator.Validator `form:"-"`
+}
+
 func (app *application) registerUserHandler(w http.ResponseWriter, r *http.Request) {
 	var input struct {
 		Name     string `form:"name"`
@@ -71,4 +86,31 @@ func (app *application) showUserHandler(w http.ResponseWriter, r *http.Request) 
 		}
 	}
 	w.Write([]byte(user.Name))
+}
+
+func (app *application) userSignup(w http.ResponseWriter, r *http.Request) {
+	data := app.newTemplateData(r)
+	data.Form = userSignupForm{}
+	app.render(w, http.StatusOK, "signup.htm", data)
+}
+
+func (app *application) userSignin(w http.ResponseWriter, r *http.Request) {
+	data := app.newTemplateData(r)
+	data.Form = userLoginForm{}
+	app.render(w, http.StatusOK, "signin.htm", data)
+}
+
+func (app *application) showUserProfile(w http.ResponseWriter, r *http.Request) {
+	data := app.newTemplateData(r)
+	app.render(w, http.StatusOK, "userProfile.htm", data)
+}
+
+func (app *application) showUserSettings(w http.ResponseWriter, r *http.Request) {
+	data := app.newTemplateData(r)
+	app.render(w, http.StatusOK, "userSettings.htm", data)
+}
+
+func (app *application) showUserOrders(w http.ResponseWriter, r *http.Request) {
+	data := app.newTemplateData(r)
+	app.render(w, http.StatusOK, "userOrders.htm", data)
 }

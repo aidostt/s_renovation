@@ -1,31 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+{{define "title"}}Клиенты{{end}}
 
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&family=Nunito+Sans:wght@200;300;400;600;800&display=swap"
-        rel="stylesheet" />
-    <link rel="shortcut icon" href="static/images/shortcut_icon.ico" type="image/x-icon" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-        crossorigin="anonymous"></script>
-    <script defer src="https://code.jquery.com/jquery-3.6.3.min.js"
-        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
-    <script defer src="https://kit.fontawesome.com/38606480b3.js" crossorigin="anonymous"></script>
-    <script defer src="../static/js/script.js"></script>
-    <link rel="stylesheet" href="../static/css/style.css" />
-    <title></title>
-</head>
-
-<body>
+{{define "body"}}
     <div id="preloader" class="d-flex content-center align-center">
         <div class="spinner-grow text-color-blue" role="status">
             <span class="visually-hidden">Loading...</span>
@@ -34,14 +9,14 @@
     <div class="container-fluid navigation px-4 border-bottom-dark fixed-top">
         <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between header-h ">
             <div class="brand">
-                <a href="../index.htm"
+                <a href="/"
                     class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-                    <img class="brand-img" src="../static/images/brand_logo/brand-2.png" alt="s-renovation">
+                    <img class="brand-img" src="../../static/images/brand_logo/brand-2.png" alt="s-renovation">
                 </a>
             </div>
             <a href="#" class="d-flex align-items-center justify-content-center link-dark text-decoration-none"
                 data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="../static/images/client-3.jpg" alt="mdo" width="40" height="40" class="rounded-circle">
+                <img src="../../static/images/client-3.jpg" alt="mdo" width="40" height="40" class="rounded-circle">
             </a>
             <ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3 no-border"
                 aria-labelledby="profileDropdown">
@@ -50,7 +25,7 @@
                     <div class="d-flex align-items-center">
                         <!-- Avatar -->
                         <div class="avatar me-3">
-                            <img class="avatar-img rounded-circle" src="../static/images/client-3.jpg" alt="avatar"
+                            <img class="avatar-img rounded-circle" src="../../static/images/client-3.jpg" alt="avatar"
                                  style="width:inherit;">
                         </div>
                         <div>
@@ -61,9 +36,9 @@
                 </li>
                 <hr class="dropdown-divider">
                 <!-- Links -->
-                <li><a class="dropdown-item" href="userProfile.htm">Админ панель</a></li>
-                <li><a class="dropdown-item" href="#">Клиенты</a></li>
-                <li><a class="dropdown-item" href="#">Заявки</a></li>
+                <li><a class="dropdown-item" href="/admin">Админ панель</a></li>
+                <li><a class="dropdown-item" href="/admin/customers">Клиенты</a></li>
+                <li><a class="dropdown-item" href="/admin/orders">Заявки</a></li>
                 <li><a class="dropdown-item bg-danger-soft-hover" href="#">Выйти</a></li>
             </ul>
             <a id="offcanvas-btn" class="btn" data-bs-toggle="offcanvas" href="#offcanvas" role="button"
@@ -155,11 +130,6 @@
                     Работники
                 </a>
             </li>
-            <li>
-                <a href="#" class="nav-link link-dark main-border-radius">
-                    Customers
-                </a>
-            </li>
         </ul>
     </div>
     <div class="content">
@@ -233,6 +203,4 @@
             </div>
         </div>
     </div>
-</body>
-
-</html>
+{{end}}
