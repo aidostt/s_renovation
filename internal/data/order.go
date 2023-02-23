@@ -56,7 +56,7 @@ func (m OrderModel) GelAll() ([]Order, error) {
 	var orders []Order
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*3)
 	defer cancel()
-	collection := m.DB.Database("renovation").Collection("users")
+	collection := m.DB.Database("renovation").Collection("order")
 	result, err := collection.Find(ctx, bson.M{}, nil)
 	if err != nil {
 		fmt.Println("first case")
