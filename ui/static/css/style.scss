@@ -715,3 +715,14 @@ tbody th, td {
     padding-top: 1rem !important;
     padding-bottom: 1rem !important;
 }
+
+.error {
+    color: #C0392B;
+    font-weight: bold;
+    display: block;
+}
+
+.error + textarea, .error + input {
+    border-color: red !important;
+    border-width: 2px !important;
+}

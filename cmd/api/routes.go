@@ -32,7 +32,7 @@ func (app *application) Router() *httprouter.Router {
 	router.HandlerFunc(http.MethodGet, "/admin", app.showAdminPanel)
 	//router.HandlerFunc(http.MethodGet, "/admin/customers", app.showAdminPanelCustomers)
 	router.HandlerFunc(http.MethodGet, "/admin/customers", app.showAllUsers)
-	router.HandlerFunc(http.MethodGet, "/admin/orders", app.showAdminPanelOrders)
+	router.HandlerFunc(http.MethodGet, "/admin/orders", app.getAllOrders)
 
 	return router
 }

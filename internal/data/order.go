@@ -17,6 +17,7 @@ type Order struct {
 	Pack       string             `bson:"pack"`
 	Additional bool               `bson:"additional"`
 	Details    string             `bson:"details"`
+	CreatedAt  time.Time          `bson:"created_at"`
 }
 
 type OrderModel struct {

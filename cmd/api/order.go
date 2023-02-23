@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net/http"
 	"s_renovation.net/internal/data"
+	"time"
 )
 
 func (app *application) createOrder(w http.ResponseWriter, r *http.Request) {
@@ -28,6 +29,7 @@ func (app *application) createOrder(w http.ResponseWriter, r *http.Request) {
 		Pack:       input.Pack,
 		Additional: input.Additional,
 		Details:    input.Details,
+		CreatedAt:  time.Now(),
 	}
 
 	err = app.models.Order.Insert(order)
@@ -36,6 +38,18 @@ func (app *application) createOrder(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	http.Redirect(w, r, "/", http.StatusSeeOther)
+}
+
+func (app *application) getAllOrders(w http.ResponseWriter, r *http.Request) {
+	orders, err := app.models.Order.GelAll()
+	if err != nil {
+		app.serverErrorResponse(w, r, err)
+		return
+	}
+
+	data := app.newTemplateData(r)
+	data.Form = orders
+	app.render(w, http.StatusOK, "adminPanel_orders.htm", data, r)
 }
 
 //func (app *application) showAllOrders(w http.ResponseWriter, r *http.Request) {
