@@ -5,13 +5,15 @@ import (
 )
 
 type Models struct {
-	Form FormModel
-	User UserModel
+	Form  FormModel
+	User  UserModel
+	Order OrderModel
 }
 
 func NewModels(db *mongo.Client) Models {
 	return Models{
-		Form: FormModel{DB: db},
-		User: UserModel{DB: db},
+		Form:  FormModel{DB: db},
+		User:  UserModel{DB: db},
+		Order: OrderModel{DB: db},
 	}
 }

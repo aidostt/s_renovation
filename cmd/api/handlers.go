@@ -2,9 +2,11 @@ package main
 
 import (
 	"net/http"
+	"s_renovation.net/internal/data"
 )
 
 func (app *application) home(w http.ResponseWriter, r *http.Request) {
-	data := app.newTemplateData(r)
-	app.render(w, http.StatusOK, "index.htm", data, r)
+	d := app.newTemplateData(r)
+	d.Form = &data.User{}
+	app.render(w, http.StatusOK, "index.htm", d, r)
 }

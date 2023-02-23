@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 	"golang.org/x/crypto/bcrypt"
@@ -16,23 +17,23 @@ var (
 )
 
 type User struct {
-	_Id       primitive.ObjectID `bson:"_id"`
-	CreatedAt time.Time          `json:"created_at"`
-	Name      string             `json:"name"`
-	Surname   string             `json:"surname"`
-	Phone     string             `json:"phone"`
-	Email     string             `json:"email"`
-	Password  password           `json:"password"`
-	//role
+	Id        primitive.ObjectID `bson:"_id"`
+	CreatedAt time.Time          `bson:"created_at"`
+	Name      string             `bson:"name"`
+	Surname   string             `bson:"surname"`
+	Phone     string             `bson:"phone"`
+	Email     string             `bson:"email"`
+	Password  password           `bson:"password"`
+	Role      int                `bson:"role"`
+}
+
+type password struct {
+	plaintext *string `json:"plaintext,omitempty"`
+	hash      []byte  `json:"hash"`
 }
 
 type UserModel struct {
 	DB *mongo.Client
-}
-
-type password struct {
-	plaintext *string
-	hash      []byte
 }
 
 func ValidateEmail(v *validator.Validator, email string) {
@@ -57,19 +58,18 @@ func ValidateUser(v *validator.Validator, user *User) {
 	}
 }
 
-func (p *password) Set(plaintextPassword string, cost int) error {
-	hash, err := bcrypt.GenerateFromPassword([]byte(plaintextPassword), cost)
+func (p *password) Set(plaintextPassword string) error {
+	hash, err := bcrypt.GenerateFromPassword([]byte(plaintextPassword), 12)
 	if err != nil {
 		return err
 	}
 	p.plaintext = &plaintextPassword
 	p.hash = hash
-	fmt.Println(hash)
 	return nil
 }
 
-func (p *password) Matches(plaintextPassword string, hash []byte) (bool, error) {
-	err := bcrypt.CompareHashAndPassword(hash, []byte(plaintextPassword))
+func (p *password) Matches(plaintextPassword string) (bool, error) {
+	err := bcrypt.CompareHashAndPassword(p.hash, []byte(plaintextPassword))
 	if err != nil {
 		switch {
 		case errors.Is(err, bcrypt.ErrMismatchedHashAndPassword):
@@ -86,6 +86,7 @@ func (m UserModel) Insert(user *User) error {
 	defer cancel()
 	collection := m.DB.Database("renovation").Collection("users")
 	_, err := collection.InsertOne(ctx, user)
+	fmt.Printf("this is user pass from insert %v", user.Password)
 	if err != nil {
 		//add unique constraint on email
 		if mongo.IsDuplicateKeyError(err) {
@@ -102,7 +103,8 @@ func (m UserModel) GetByEmail(email string) (*User, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*3)
 	defer cancel()
 	collection := m.DB.Database("renovation").Collection("users")
-	err := collection.FindOne(ctx, email).Decode(&user)
+	filter := bson.M{"email": email}
+	err := collection.FindOne(ctx, filter).Decode(&user)
 	if err != nil {
 		switch {
 		case errors.Is(err, mongo.ErrNoDocuments):
@@ -114,15 +116,32 @@ func (m UserModel) GetByEmail(email string) (*User, error) {
 	return &user, nil
 }
 
+func (m UserModel) GelAll() ([]User, error) {
+	var users []User
+	ctx, cancel := context.WithTimeout(context.Background(), time.Second*3)
+	defer cancel()
+	collection := m.DB.Database("renovation").Collection("users")
+	result, err := collection.Find(ctx, bson.M{}, nil)
+	if err != nil {
+		fmt.Println("first case")
+		return nil, err
+	}
+	if err = result.All(ctx, &users); err != nil {
+		fmt.Println("second case")
+		return nil, err
+	}
+	return users, nil
+}
+
 func (m UserModel) Update() {
 	return
 }
 
 func (m UserModel) Delete(user User) error {
-	collection := m.DB.Database("test").Collection("form")
+	collection := m.DB.Database("renovation").Collection("users")
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*3)
 	defer cancel()
-	result, err := collection.DeleteOne(ctx, user._Id)
+	result, err := collection.DeleteOne(ctx, user.Id)
 
 	if err != nil || result.DeletedCount == 0 {
 		switch {

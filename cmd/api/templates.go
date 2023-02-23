@@ -4,14 +4,11 @@ import (
 	"html/template"
 	"net/http"
 	"path/filepath"
-	"s_renovation.net/internal/data"
 	"time"
 )
 
 type templateData struct {
 	CurrentYear int
-	Snippet     *data.Form
-	Snippets    []*data.Form
 	Form        any
 }
 

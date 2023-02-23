@@ -98,23 +98,12 @@
                         <a href="index.htm#advantages" class="nav-link link-dark main-border-radius">Преимущества</a>
                     </li>
                 </ul>
-                <div class="d-flex text-end mb-3 justify-content-between">
-                    <a href="signin.htm" class="btn btn-primary main-border-radius"
-                        style="flex: 1 0 0; margin-right: 15px;">Войти</a>
-                    <a href="signup.htm" class="btn btn-primary main-border-radius"
-                        style="flex: 1 0 0;">Зарегистрироваться</a>
-                </div>
             </div>
         </header>
     </div>
     <div class="d-flex flex-column flex-shrink-0 p-3 px-4 bg-light fixed border-right-dark"
         style="width: 280px; height: calc(100vh - 71px);">
         <ul class="nav nav-pills flex-column mb-auto">
-            <li class="nav-item">
-                <a href="#" class="nav-link link-dark main-border-radius" aria-current="page">
-                    Админ панель
-                </a>
-            </li>
             <li>
                 <a href="#" class="nav-link active bg-blue main-border-radius">
                     Клиенты
@@ -149,53 +138,21 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Клиент</th>
                                 <th scope="col">Email</th>
-                                <th scope="col">Количество заявок</th>
+                                <!--<th scope="col">Количество заявок</th>-->
+                                <th scope="col">Телефон</th>
                                 <th scope="col">Зарегистрирован с</th>
                             </tr>
                         </thead>
                         <tbody>
+                        {{range .Form}}
                             <tr>
-                                <th scope="row">1</th>
-                                <td>Алия Баленбаева</td>
-                                <td>example@gmail.com</td>
-                                <td>2</td>
-                                <td>01.01.2022</td>
+                                <th scope="row">{{.Id}}</th>
+                                <td>{{.Name}} {{.Surname}}</td>
+                                <td>{{.Email}}</td>
+                                <td>{{.Phone}}</td>
+                                <td>{{.CreatedAt}}</td>
                             </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Якоб Баленбаев</td>
-                                <td>example@gmail.com</td>
-                                <td>1</td>
-                                <td>02.04.2021</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Лари Браун</td>
-                                <td>example@gamil.com</td>
-                                <td>1</td>
-                                <td>17.06.2022</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">4</th>
-                                <td>Алия Баленбаева</td>
-                                <td>example@gmail.com</td>
-                                <td>2</td>
-                                <td>01.01.2022</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">5</th>
-                                <td>Якоб Баленбаев</td>
-                                <td>example@gmail.com</td>
-                                <td>1</td>
-                                <td>02.04.2021</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">6</th>
-                                <td>Лари Браун</td>
-                                <td>example@gamil.com</td>
-                                <td>1</td>
-                                <td>17.06.2022</td>
-                            </tr>
+                        {{end}}
                         </tbody>
                     </table>
                 </div>

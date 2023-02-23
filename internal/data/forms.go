@@ -41,7 +41,7 @@ func (m FormModel) Insert(form *Form) error {
 
 func (m FormModel) Get(id primitive.ObjectID) (*Form, error) {
 	var form Form
-	collection := m.DB.Database("test").Collection("form")
+	collection := m.DB.Database("renovation").Collection("form")
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*3)
 	defer cancel()
 	err := collection.FindOne(ctx, id).Decode(&form)
@@ -61,7 +61,7 @@ func (m FormModel) Update(form *Form) error {
 }
 
 func (m FormModel) Delete(form *Form) error {
-	collection := m.DB.Database("test").Collection("form")
+	collection := m.DB.Database("renovation").Collection("form")
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*3)
 	defer cancel()
 	result, err := collection.DeleteOne(ctx, form._Id)
