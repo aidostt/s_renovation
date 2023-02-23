@@ -18,6 +18,7 @@ func (app *application) Router() *httprouter.Router {
 	router.HandlerFunc(http.MethodPost, "/createForm", app.createFormHandler)
 	router.HandlerFunc(http.MethodPost, "/signup", app.registerUserHandler)
 	router.HandlerFunc(http.MethodPost, "/signin", app.userSigninPost)
+	router.HandlerFunc(http.MethodPost, "/sendOrder", app.createOrder)
 
 	router.HandlerFunc(http.MethodGet, "/", app.home)
 

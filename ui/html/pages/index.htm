@@ -51,7 +51,6 @@
                         <hr class="dropdown-divider">
                     <!-- Links -->
                     <li><a class="dropdown-item" href="/user/profile">Профиль</a></li>
-                    <li><a class="dropdown-item" href="/user/settings">Настройки</a></li>
                     <li><a class="dropdown-item" href="/user/orders">Заявки</a></li>
                     <li><a class="dropdown-item bg-danger-soft-hover" href="#">Выйти</a></li>
                 </ul>
@@ -275,7 +274,7 @@
                         </div>
                         <a href="#contact"
                             class="selectPackageButton p-card-btn p-card-btn-outline btn btn-lg btn-primary fnt-fam-nunito p-card-fixed-btn main-border-radius"
-                            data-value="option1">
+                            data-value="Standart">
                             Отправить заявку
                         </a>
                     </div>
@@ -303,7 +302,7 @@
                         </div>
                         <a href="#contact"
                             class="selectPackageButton i-btn no-border p-card-btn btn btn-lg btn-primary fnt-fam-nunito main-border-radius"
-                            data-value="option2">
+                            data-value="Comfort">
                             Отправить заявку
                         </a>
                     </div>
@@ -481,37 +480,35 @@
                 <div class="col-lg-6">
                     <div class="card mt-5 mt-lg-0">
                         <!-- FORM BEGIN -->
-                        <form id="contact-form" method="post" autocomplete="off">
+                        <form action="/sendOrder" id="contact-form" method="post" autocomplete="off">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label>Имя <span class="text-danger">*</span></label>
                                         <div class="input-group mb-4">
                                             <input class="form-control" placeholder="Ваше имя"
-                                                aria-label="First Name..." type="text">
+                                                aria-label="First Name..." type="text" name="name">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <label>Email адрес <span class="text-danger">*</span></label>
+                                        <label>Телефон <span class="text-danger">*</span></label>
 
                                         <div class="input-group">
-                                            <input type="email" class="form-control" placeholder="example@gmail.com">
+                                            <input type="tel" class="form-control phone-input" data-mask="+# (###) ###-####" placeholder="+0 (000) 000-0000" name="phone">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <label for="validationCustom04" class="form-label">Пакет <span
-                                            class="text-danger">*</span></label>
-                                    <select class="form-select" id="validationCustom04" required>
+                                    <label for="validationCustom04" class="form-label">Пакет <span class="text-danger">*</span></label>
+                                    <select class="form-select" id="validationCustom04" name="pack" required>
                                         <option selected disabled>Выберите пакет</option>
-                                        <option value="option1">Standart</option>
-                                        <option value="option2">Comfort</option>
+                                        <option value="Standart">Standart</option>
+                                        <option value="Comfort">Comfort</option>
                                     </select>
                                 </div>
                                 <div class="col-12 mt-2 mb-4">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck"
-                                            required>
+                                        <input class="form-check-input" type="checkbox" value="true" id="invalidCheck" name="additional">
                                         <label class="form-check-label mb-0 mx-2" for="invalidCheck">
                                             Дополнительные услуги
                                         </label>
@@ -519,8 +516,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Дополнительная информация</label>
-                                    <textarea name="message" class="form-control" placeholder="Напишите тут"
-                                        id="message" rows="3"></textarea>
+                                    <textarea name="details" class="form-control" placeholder="Напишите тут" id="message" rows="3"></textarea>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">

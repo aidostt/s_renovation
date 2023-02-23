@@ -11,11 +11,12 @@ import (
 )
 
 type Order struct {
-	Id      primitive.ObjectID `bson:"_id"`
-	Name    string             `json:"name"`
-	Email   string             `json:"email"`
-	Pack    string             `json:"pack"`
-	Details string             `json:"details"`
+	Id         primitive.ObjectID `bson:"_id"`
+	Name       string             `bson:"name"`
+	Phone      string             `bson:"phone"`
+	Pack       string             `bson:"pack"`
+	Additional bool               `bson:"additional"`
+	Details    string             `bson:"details"`
 }
 
 type OrderModel struct {
@@ -26,6 +27,7 @@ func (m OrderModel) Insert(form *Order) error {
 	collection := m.DB.Database("renovation").Collection("order")
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*3)
 	defer cancel()
+	form.Id = primitive.NewObjectID()
 	_, err := collection.InsertOne(ctx, form)
 	if err != nil {
 		//server error response

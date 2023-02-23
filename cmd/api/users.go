@@ -62,7 +62,7 @@ func (app *application) registerUserHandler(w http.ResponseWriter, r *http.Reque
 		return
 	}
 
-	app.render(w, http.StatusOK, "signin.htm", nil, r)
+	http.Redirect(w, r, "/signin", http.StatusSeeOther)
 	//err = app.writeJSON(w, http.StatusAccepted, envelope{"user": user}, nil)
 }
 

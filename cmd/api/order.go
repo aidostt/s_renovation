@@ -8,9 +8,11 @@ import (
 
 func (app *application) createOrder(w http.ResponseWriter, r *http.Request) {
 	var input struct {
-		Name    string `form:"name"`
-		Email   string `form:"email"`
-		Details string `form:"details"`
+		Name       string `form:"name"`
+		Phone      string `form:"phone"`
+		Pack       string `form:"pack"`
+		Additional bool   `form:"additional"`
+		Details    string `form:"details"`
 	}
 
 	err := app.decodePostForm(r, &input)
@@ -21,16 +23,19 @@ func (app *application) createOrder(w http.ResponseWriter, r *http.Request) {
 	}
 
 	order := &data.Order{
-		Name:    input.Name,
-		Email:   input.Email,
-		Details: input.Details,
+		Name:       input.Name,
+		Phone:      input.Phone,
+		Pack:       input.Pack,
+		Additional: input.Additional,
+		Details:    input.Details,
 	}
 
 	err = app.models.Order.Insert(order)
 	if err != nil {
 		app.serverErrorResponse(w, r, err)
+		return
 	}
-
+	http.Redirect(w, r, "/", http.StatusSeeOther)
 }
 
 //func (app *application) showAllOrders(w http.ResponseWriter, r *http.Request) {
