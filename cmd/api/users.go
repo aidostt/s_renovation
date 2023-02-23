@@ -50,7 +50,7 @@ func (app *application) registerUserHandler(w http.ResponseWriter, r *http.Reque
 	}
 	err = app.models.User.Insert(user)
 	if err != nil {
-		fmt.Println(err)
+		fmt.Printf("\nRegister user handler: %v", err)
 		switch {
 		case errors.Is(err, data.ErrDuplicateEmail):
 			v.AddError("email", "a user with this email address already exists")
@@ -62,14 +62,12 @@ func (app *application) registerUserHandler(w http.ResponseWriter, r *http.Reque
 		return
 	}
 
-	app.render(w, http.StatusOK, "index.htm", nil, r)
-	err = app.writeJSON(w, http.StatusAccepted, envelope{"user": user}, nil)
+	app.render(w, http.StatusOK, "signin.htm", nil, r)
+	//err = app.writeJSON(w, http.StatusAccepted, envelope{"user": user}, nil)
 }
 
 func (app *application) registerUserHandlerGET(w http.ResponseWriter, r *http.Request) {
-	d := app.newTemplateData(r)
-	d.Form = data.User{}
-	app.render(w, http.StatusOK, "signup.htm", d, r)
+	app.render(w, http.StatusOK, "signup.htm", nil, r)
 }
 
 func (app *application) showUserHandler(w http.ResponseWriter, r *http.Request) {
@@ -137,23 +135,19 @@ func (app *application) userSigninPost(w http.ResponseWriter, r *http.Request) {
 }
 
 func (app *application) userSignin(w http.ResponseWriter, r *http.Request) {
-	data := app.newTemplateData(r)
-	app.render(w, http.StatusOK, "signin.htm", data, r)
+	app.render(w, http.StatusOK, "signin.htm", nil, r)
 }
 
 func (app *application) showUserProfile(w http.ResponseWriter, r *http.Request) {
-	data := app.newTemplateData(r)
-	app.render(w, http.StatusOK, "userProfile.htm", data, r)
+	app.render(w, http.StatusOK, "userProfile.htm", nil, r)
 }
 
 func (app *application) showUserSettings(w http.ResponseWriter, r *http.Request) {
-	data := app.newTemplateData(r)
-	app.render(w, http.StatusOK, "userSettings.htm", data, r)
+	app.render(w, http.StatusOK, "userSettings.htm", nil, r)
 }
 
 func (app *application) showUserOrders(w http.ResponseWriter, r *http.Request) {
-	data := app.newTemplateData(r)
-	app.render(w, http.StatusOK, "userOrders.htm", data, r)
+	app.render(w, http.StatusOK, "userOrders.htm", nil, r)
 }
 
 func (app *application) showAllUsers(w http.ResponseWriter, r *http.Request) {
@@ -166,5 +160,4 @@ func (app *application) showAllUsers(w http.ResponseWriter, r *http.Request) {
 	data := app.newTemplateData(r)
 	data.Form = users
 	app.render(w, http.StatusOK, "adminPanel_customers.htm", data, r)
-
 }

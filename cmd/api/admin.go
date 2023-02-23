@@ -3,8 +3,7 @@ package main
 import "net/http"
 
 func (app *application) showAdminPanel(w http.ResponseWriter, r *http.Request) {
-	data := app.newTemplateData(r)
-	app.render(w, http.StatusOK, "adminPanel.htm", data, r)
+	app.render(w, http.StatusOK, "adminPanel.htm", nil, r)
 }
 
 func (app *application) showAdminPanelCustomers(w http.ResponseWriter, r *http.Request) {
@@ -13,6 +12,5 @@ func (app *application) showAdminPanelCustomers(w http.ResponseWriter, r *http.R
 }
 
 func (app *application) showAdminPanelOrders(w http.ResponseWriter, r *http.Request) {
-	data := app.newTemplateData(r)
-	app.render(w, http.StatusOK, "adminPanel_orders.htm", data, r)
+	app.render(w, http.StatusOK, "adminPanel_orders.htm", nil, r)
 }

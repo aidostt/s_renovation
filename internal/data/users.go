@@ -17,7 +17,7 @@ var (
 )
 
 type User struct {
-	Id        primitive.ObjectID `bson:"_id"`
+	Id        primitive.ObjectID `bson:"_id,omitempty"`
 	CreatedAt time.Time          `bson:"created_at"`
 	Name      string             `bson:"name"`
 	Surname   string             `bson:"surname"`
@@ -85,6 +85,7 @@ func (m UserModel) Insert(user *User) error {
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*3)
 	defer cancel()
 	collection := m.DB.Database("renovation").Collection("users")
+	user.Id = primitive.NewObjectID()
 	_, err := collection.InsertOne(ctx, user)
 	fmt.Printf("this is user pass from insert %v", user.Password)
 	if err != nil {
